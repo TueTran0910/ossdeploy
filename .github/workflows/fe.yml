@@ -1,24 +1,26 @@
-name: Deploy to Somee via SFTP
+name: Deploy to Somee via FTP
 
 on:
   push:
     branches:
-      - main
+      - main   # chạy khi push nhánh main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout code từ repo
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Upload via SFTP
-        uses: appleboy/ssh-action@v0.1.9
+      # Upload file lên Somee bằng FTP
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          host: ${{ secrets.FTP_HOST }}
+          server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PW }}
-          port: 21
-          source: "./"
-          target: "/www.ossdeploy27112025.somee.com"
+          local-dir: ./                         # thư mục gốc repo
+          server-dir: /www.ossdeploy27112025.somee.com  # thư mục trên hosting
+          protocol: ftp                        # dùng FTP (không phải SFTP)
