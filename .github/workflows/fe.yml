@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PW }}
           local-dir: ./    # thư mục cần upload (gốc project)
-          server-dir: /    # thư mục trên hosting (thường là / hoặc /wwwroot)
+          server-dir: /www.ossdeploy27112025.somee.com    # thư mục trên hosting (thường là / hoặc /wwwroot)
           protocol: ftp
           exclude: |
             **/.git*
