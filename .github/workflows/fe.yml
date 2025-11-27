@@ -22,5 +22,5 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PW }}
           local-dir: ./                         # thư mục gốc repo
-          server-dir: /www.ossdeploy27112025.somee.com  # thư mục trên hosting
+          server-dir: /www.ossdeploy27112025.somee.com/  # thư mục trên hosting
           protocol: ftp                        # dùng FTP (không phải SFTP)
