@@ -19,6 +19,6 @@ jobs:
           host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PW }}
-          port: 22
+          port: 21
           source: "./"
           target: "/www.ossdeploy27112025.somee.com"
